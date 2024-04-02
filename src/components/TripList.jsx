@@ -7,8 +7,8 @@ function TripList() {
 
     //const [trip, setTrip] = useState([])
 
-    const [url, setUrl] = useState('http://localhost:3000/trips')
-    const {data: trip, isPending}=useFetch(url)
+    const [url, setUrl] = useState('http://localhost:3000/tripss')
+    const {data: trip, isPending,error}=useFetch(url)
    /** const FTrip = useCallback(async () => {
         const req = await fetch(url)
         const data = await req.json()
@@ -24,6 +24,7 @@ function TripList() {
         <div className="trip-list">
             <h1>Trip List</h1>
             { isPending && <div><p>loading..</p></div> }
+            {error&&<div>{error}</div>}
             <ul>
                 {trip && trip.map((trip) => {
                     return (
